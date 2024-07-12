@@ -84,7 +84,11 @@ If you check the terminal where Celery is running, you should see the below:
 
 <img width="1334" alt="Screenshot 2024-07-12 at 21 58 24" src="https://github.com/user-attachments/assets/b06898ae-36c0-4263-b07e-b3f839ba4a6a">
 
-This indicates that the 
+This indicates that the email-sending task was received, processed by a specific Celery worker (ForkPoolWorker-8), and completed successfully in about 2.77 seconds.
+
+- Check your email address for the mail sent
+
+<img width="1402" alt="Screenshot 2024-07-12 at 22 04 06" src="https://github.com/user-attachments/assets/174edfe6-db12-4d2d-8f21-7a7733d8fafc">
 
 ## Setup Ngrok
 
