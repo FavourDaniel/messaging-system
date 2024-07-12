@@ -23,7 +23,7 @@ The default login credential for both the username and password is "guest".
 
 ## Set up Celery
 
-Celery is a asynchronous task queue/job queue system for Python, designed to handle real-time operations and can be used to schedule tasks that run in the background, allowing for concurrency and parallel execution of code.
+Celery is an asynchronous task queue/job queue system for Python, designed to handle real-time operations. It can be used to schedule tasks that run in the background, allowing for concurrency and parallel execution of code.
 
 Celery is a Python package so it will be installed with pip. This will be done in a virtual environment.
 
@@ -47,7 +47,7 @@ The provided Python application creates a simple web application that does two t
 
 
 ### Email
-You can choose to use an existing email address or create a new one. Configure 2FA for whichever.
+You can use an existing email address or create a new one. Configure 2FA for whichever.
 In the email settings, search "App Password" and create an App password. Be sure to copy the password somewhere.
 
 A `.env.example` file has been provided in this repo. Change the name to `.env` and replace the email and app password env variables.
@@ -74,7 +74,17 @@ celery -A app.celery worker --loglevel=info
 
 - Access the app at `localhost:5000`
 - In another tab, load `http://localhost:5000/?talktome=true` to generate time logs
+
+<img width="736" alt="Screenshot 2024-07-12 at 21 55 28" src="https://github.com/user-attachments/assets/1775c5fe-00d5-485d-83a2-64d5dee0f8c1">
+
 - In another tab, load `http://localhost:5000/?sendmail=kuberneteslinux@gmail.com`
+<img width="737" alt="Screenshot 2024-07-12 at 21 56 22" src="https://github.com/user-attachments/assets/93da44a2-cd1e-4065-9b4c-a1d6730f79e7">
+
+If you check the terminal where Celery is running, you should see the below:
+
+<img width="1334" alt="Screenshot 2024-07-12 at 21 58 24" src="https://github.com/user-attachments/assets/b06898ae-36c0-4263-b07e-b3f839ba4a6a">
+
+This indicates that the 
 
 ## Setup Ngrok
 
@@ -90,8 +100,11 @@ Run the following command in your terminal to install the authtoken and connect 
 ngrok config add-authtoken <TOKEN>
 ```
 - Create a static domain
-You can create a free one on your ngrok dashboard
-==insert image
+
+You can create a free one on your ngrok dashboard under the setup and installation tab.
+
+<img width="948" alt="Screenshot 2024-07-12 at 21 52 40" src="https://github.com/user-attachments/assets/7d19b1cf-f354-4de9-9e5b-9d2ea2c511c7">
+
 Copy and paste command displayed
 ```
 ngrok http --domain=<unique-domain.ngrok-free.app> 80
