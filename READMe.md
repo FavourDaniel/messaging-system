@@ -61,19 +61,19 @@ sudo chmod a+rw /var/log/messaging_system.log
 ```
 
 ### Start the Application
-In your terminal, run:
+- In your terminal, run:
 ```
 python app.py  --port 5000
 ```
 
-In another terminal, run:
+- In another terminal, run:
 ```
 celery -A app.celery worker --loglevel=info
 ```
 
-Access the app at `localhost:5000`
-In another tab, load `http://localhost:5000/?talktome=true` to generate time logs
-In another tab, load `http://localhost:5000/?sendmail=kuberneteslinux@gmail.com`
+- Access the app at `localhost:5000`
+- In another tab, load `http://localhost:5000/?talktome=true` to generate time logs
+- In another tab, load `http://localhost:5000/?sendmail=kuberneteslinux@gmail.com`
 
 ## Setup Ngrok
 
@@ -96,7 +96,10 @@ Copy and paste command displayed
 ngrok http --domain=<unique-domain.ngrok-free.app> 80
 ```
 ==insert terminal image
-Copy and run the url in your browser
+- Copy and run the url in your browser
 ==insert image
-Access the website
+- Access the website
+==insert image
+
+- You can also acess your ngrok dashboard at localhost://4040
 ==insert image
