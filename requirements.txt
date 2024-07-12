@@ -1,0 +1,5 @@
+celery
+flask
+celery[redis]
+secure-smtplib
+python-dotenv

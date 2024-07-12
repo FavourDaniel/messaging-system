@@ -14,6 +14,7 @@ brew install rabbitmq ##for macOS users
 brew services start rabbitmq
 ```
 - Access RabbitMQ on http://localhost:15672/
+
 ==insert image
 
 The default login credential for both the username and password is "guest".
@@ -21,7 +22,9 @@ The default login credential for both the username and password is "guest".
 
 ## Set up Celery
 
-Celery is a ....so it needs to be installed with Python's package manager. This will be done in a virtual environment.
+Celery is a asynchronous task queue/job queue system for Python, designed to handle real-time operations and can be used to schedule tasks that run in the background, allowing for concurrency and parallel execution of code.
+
+Celery is a Python package so it will be installed with pip. This will be done in a virtual environment.
 
 - Create and activate a Python virtual environment
 ```
@@ -74,3 +77,26 @@ In another tab, load `http://localhost:5000/?sendmail=kuberneteslinux@gmail.com`
 
 ## Setup Ngrok
 
+- Install ngrok via Homebrew with the following command:
+```
+brew install ngrok/ngrok/ngrok
+```
+- Connect your account
+Next, connect your ngrok agent to your ngrok account. If you haven't already, sign up for an ngrok account. Copy your ngrok authtoken from your ngrok dashboard.
+Run the following command in your terminal to install the authtoken and connect the ngrok agent to your account.
+
+```
+ngrok config add-authtoken <TOKEN>
+```
+- Create a static domain
+You can create a free one on your ngrok dashboard
+==insert image
+Copy and paste command displayed
+```
+ngrok http --domain=<unique-domain.ngrok-free.app> 80
+```
+==insert terminal image
+Copy and run the url in your browser
+==insert image
+Access the website
+==insert image
