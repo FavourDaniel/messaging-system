@@ -15,7 +15,8 @@ brew services start rabbitmq
 ```
 - Access RabbitMQ on http://localhost:15672/
 
-==insert image
+<img width="1675" alt="Screenshot 2024-07-12 at 20 29 55" src="https://github.com/user-attachments/assets/a4c5a5c3-a2b1-4e02-8d9b-a5613829a77d">
+
 
 The default login credential for both the username and password is "guest".
 
@@ -95,11 +96,15 @@ Copy and paste command displayed
 ```
 ngrok http --domain=<unique-domain.ngrok-free.app> 80
 ```
-==insert terminal image
-- Copy and run the url in your browser
-==insert image
-- Access the website
+<img width="1440" alt="Screenshot 2024-07-12 at 21 47 32" src="https://github.com/user-attachments/assets/81d108e6-fb6f-4833-8319-bb930b714935">
+
+- Copy and open the URL in your browser
+<img width="1677" alt="Screenshot 2024-07-12 at 20 54 12" src="https://github.com/user-attachments/assets/64a1215e-fe10-4f80-b41e-1b189fbd5fed">
+
+- Click on the `Visit Site` button to access your website
 ==insert image
 
-- You can also acess your ngrok dashboard at localhost://4040
+- At your static-domain/logs, you can access the time logs
+
+- You can also access your Ngrok dashboard at localhost://4040
 ==insert image
