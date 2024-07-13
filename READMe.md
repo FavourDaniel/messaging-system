@@ -86,17 +86,17 @@ celery -A app.celery worker --loglevel=info
 - In another tab, load `http://localhost:5000/?sendmail=kuberneteslinux@gmail.com`
 <img width="737" alt="Screenshot 2024-07-12 at 21 56 22" src="https://github.com/user-attachments/assets/93da44a2-cd1e-4065-9b4c-a1d6730f79e7">
 
-If you check the terminal where Celery is running, you should see the below:
-
-<img width="1334" alt="Screenshot 2024-07-12 at 21 58 24" src="https://github.com/user-attachments/assets/b06898ae-36c0-4263-b07e-b3f839ba4a6a">
-
-This indicates that the email-sending task was received, processed by a specific Celery worker (ForkPoolWorker-8), and completed successfully.
-
 - Check RabbitMQ to be sure it was queued successfully
 <img width="1680" alt="Screenshot 2024-07-13 at 13 56 38" src="https://github.com/user-attachments/assets/149662c3-822e-4680-b3aa-11d74ceb93ec">
 
 After some seconds, it should change to ready
 <img width="1680" alt="Screenshot 2024-07-13 at 13 56 47" src="https://github.com/user-attachments/assets/906b8595-20ac-46aa-bade-9aaa0e52b5c6">
+
+If you check the terminal where Celery is running, you should see the below:
+
+<img width="1334" alt="Screenshot 2024-07-12 at 21 58 24" src="https://github.com/user-attachments/assets/b06898ae-36c0-4263-b07e-b3f839ba4a6a">
+
+This indicates that the email-sending task was received, processed by a specific Celery worker (ForkPoolWorker-8), and completed successfully.
 
 - Check your email address for the mail sent
 
