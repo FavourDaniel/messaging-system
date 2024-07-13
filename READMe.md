@@ -48,7 +48,7 @@ The provided Python application creates a simple web application that does two t
 2. Logs Time: It also has a feature to log the current time to a file when you visit another specific URL.
 
 
-### Email
+### Email setup
 You can use an existing email address or create a new one. Configure 2FA for whichever.
 In the email settings, search "App Password" and create an App password. Be sure to copy the password somewhere.
 
@@ -57,14 +57,15 @@ In the email settings, search "App Password" and create an App password. Be sure
 A `.env.template` file has been provided in this repo. Change the name to `.env` and replace the email and app password env variables.
 
 ## Set Up Log Directory
-The time logs should be logged at `/var/log/messaging_system.log`.
-
-Create and grant permission to the file:
+The time logs should be logged at `/var/log/messaging_system.log`. This path has already been set in the app to be created if it doesn't exist but you can configure it manually using the below commands:
 ```
 sudo touch /var/log/messaging_system.log
 sudo chmod a+rw /var/log/messaging_system.log
 ```
 The code has already been written to do this, but you can run these commands if you want a manual approach.
+
+### Install Nginx
+Install Nginx on your local and replace the default `nginx.conf` file with the one provided in this repo. This allows Nginx to route requests from localhost:5000 where the flask app will be running.
 
 ### Start the Application
 - In your terminal, run:
@@ -77,7 +78,10 @@ python app.py  --port 5000
 celery -A app.celery worker --loglevel=info
 ```
 
-- Access the app at `localhost:5000`
+- Access the app at `localhost`
+<img width="1680" alt="Screenshot 2024-07-13 at 13 45 51" src="https://github.com/user-attachments/assets/0c93e172-ec4c-4e52-8b72-ceb05ffcbd77">
+
+  
 - In another tab, load `http://localhost:5000/?talktome=true` to generate time logs
 
 <img width="736" alt="Screenshot 2024-07-12 at 21 55 28" src="https://github.com/user-attachments/assets/1775c5fe-00d5-485d-83a2-64d5dee0f8c1">
@@ -85,11 +89,17 @@ celery -A app.celery worker --loglevel=info
 - In another tab, load `http://localhost:5000/?sendmail=kuberneteslinux@gmail.com`
 <img width="737" alt="Screenshot 2024-07-12 at 21 56 22" src="https://github.com/user-attachments/assets/93da44a2-cd1e-4065-9b4c-a1d6730f79e7">
 
+- Check RabbitMQ to be sure it was queued successfully
+<img width="1680" alt="Screenshot 2024-07-13 at 13 56 38" src="https://github.com/user-attachments/assets/149662c3-822e-4680-b3aa-11d74ceb93ec">
+
+After some seconds, it should change to ready
+<img width="1680" alt="Screenshot 2024-07-13 at 13 56 47" src="https://github.com/user-attachments/assets/906b8595-20ac-46aa-bade-9aaa0e52b5c6">
+
 If you check the terminal where Celery is running, you should see the below:
 
 <img width="1334" alt="Screenshot 2024-07-12 at 21 58 24" src="https://github.com/user-attachments/assets/b06898ae-36c0-4263-b07e-b3f839ba4a6a">
 
-This indicates that the email-sending task was received, processed by a specific Celery worker (ForkPoolWorker-8), and completed successfully in about 2.77 seconds.
+This indicates that the email-sending task was received, processed by a specific Celery worker (ForkPoolWorker-8), and completed successfully.
 
 - Check your email address for the mail sent
 
@@ -124,9 +134,14 @@ ngrok http --domain=<unique-domain.ngrok-free.app> 80
 <img width="1677" alt="Screenshot 2024-07-12 at 20 54 12" src="https://github.com/user-attachments/assets/64a1215e-fe10-4f80-b41e-1b189fbd5fed">
 
 - Click on the `Visit Site` button to access your website
-==insert image
+<img width="1680" alt="Screenshot 2024-07-13 at 13 45 28" src="https://github.com/user-attachments/assets/32b0cadc-6112-4cbf-a6bf-be60b33dab57">
 
-- At your static-domain/logs, you can access the time logs
+- Access the time logs using the url
+<img width="1012" alt="Screenshot 2024-07-13 at 13 50 16" src="https://github.com/user-attachments/assets/f4977c87-5693-4cd4-a90d-f8b207dff98a">
 
-- You can also access your Ngrok dashboard at localhost://4040
-==insert image
+- Send an email
+<img width="1012" alt="Screenshot 2024-07-13 at 13 50 40" src="https://github.com/user-attachments/assets/5bc8f8cf-d634-4693-b3cc-ce00ba4436b1">
+
+- You can also access your Ngrok dashboard at `localhost:4040`
+<img width="1680" alt="Screenshot 2024-07-13 at 13 52 13" src="https://github.com/user-attachments/assets/6a753170-773a-4acc-b145-1b1987339d27">
+
