@@ -49,7 +49,9 @@ The provided Python application creates a simple web application that does two t
 You can choose to use an existing email address or create a new one. Configure 2FA for whichever.
 In the email settings, search "App Password" and create an App password. Be sure to copy the password somewhere.
 
-A `.env.example` file has been provided in this repo. Change the name to `.env` and replace the email and app password env variables.
+==insert images
+
+A `.env.template` file has been provided in this repo. Change the name to `.env` and replace the email and app password env variables.
 
 ## Set Up Log Directory
 The time logs should be logged at `/var/log/messaging_system.log`.
@@ -59,6 +61,7 @@ Create and grant permission to the file:
 sudo touch /var/log/messaging_system.log
 sudo chmod a+rw /var/log/messaging_system.log
 ```
+The code has already been written to do this, but you can run these commands if you want a manual approach.
 
 ### Start the Application
 - In your terminal, run:
