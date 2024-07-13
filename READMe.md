@@ -1,6 +1,8 @@
 # Messaging System with RabbitMQ/Celery and Python Application behind Nginx
 
-This deploys a Python application behind Nginx that interacts with RabbitMQ/Celery for email sending and logging functionality.
+This deploys a Python application behind Nginx that interacts with RabbitMQ/Celery for email sending and logging functionality. The below architecture diagram visualizes the process:
+![app-architecture](https://github.com/user-attachments/assets/7c964cc8-27ed-47b0-9119-cde2c41d5ec8)
+
 
 ## Set up RabbitMQ Locally
 
