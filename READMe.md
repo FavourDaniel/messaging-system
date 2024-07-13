@@ -15,14 +15,15 @@ brew services start rabbitmq
 ```
 - Access RabbitMQ on http://localhost:15672/
 
-==insert image
+<img width="1675" alt="Screenshot 2024-07-12 at 20 29 55" src="https://github.com/user-attachments/assets/a4c5a5c3-a2b1-4e02-8d9b-a5613829a77d">
+
 
 The default login credential for both the username and password is "guest".
 
 
 ## Set up Celery
 
-Celery is a asynchronous task queue/job queue system for Python, designed to handle real-time operations and can be used to schedule tasks that run in the background, allowing for concurrency and parallel execution of code.
+Celery is an asynchronous task queue/job queue system for Python, designed to handle real-time operations. It can be used to schedule tasks that run in the background, allowing for concurrency and parallel execution of code.
 
 Celery is a Python package so it will be installed with pip. This will be done in a virtual environment.
 
@@ -46,7 +47,7 @@ The provided Python application creates a simple web application that does two t
 
 
 ### Email
-You can choose to use an existing email address or create a new one. Configure 2FA for whichever.
+You can use an existing email address or create a new one. Configure 2FA for whichever.
 In the email settings, search "App Password" and create an App password. Be sure to copy the password somewhere.
 
 ==insert images
@@ -76,7 +77,21 @@ celery -A app.celery worker --loglevel=info
 
 - Access the app at `localhost:5000`
 - In another tab, load `http://localhost:5000/?talktome=true` to generate time logs
+
+<img width="736" alt="Screenshot 2024-07-12 at 21 55 28" src="https://github.com/user-attachments/assets/1775c5fe-00d5-485d-83a2-64d5dee0f8c1">
+
 - In another tab, load `http://localhost:5000/?sendmail=kuberneteslinux@gmail.com`
+<img width="737" alt="Screenshot 2024-07-12 at 21 56 22" src="https://github.com/user-attachments/assets/93da44a2-cd1e-4065-9b4c-a1d6730f79e7">
+
+If you check the terminal where Celery is running, you should see the below:
+
+<img width="1334" alt="Screenshot 2024-07-12 at 21 58 24" src="https://github.com/user-attachments/assets/b06898ae-36c0-4263-b07e-b3f839ba4a6a">
+
+This indicates that the email-sending task was received, processed by a specific Celery worker (ForkPoolWorker-8), and completed successfully in about 2.77 seconds.
+
+- Check your email address for the mail sent
+
+<img width="1402" alt="Screenshot 2024-07-12 at 22 04 06" src="https://github.com/user-attachments/assets/174edfe6-db12-4d2d-8f21-7a7733d8fafc">
 
 ## Setup Ngrok
 
@@ -92,17 +107,24 @@ Run the following command in your terminal to install the authtoken and connect 
 ngrok config add-authtoken <TOKEN>
 ```
 - Create a static domain
-You can create a free one on your ngrok dashboard
-==insert image
+
+You can create a free one on your ngrok dashboard under the setup and installation tab.
+
+<img width="948" alt="Screenshot 2024-07-12 at 21 52 40" src="https://github.com/user-attachments/assets/7d19b1cf-f354-4de9-9e5b-9d2ea2c511c7">
+
 Copy and paste command displayed
 ```
 ngrok http --domain=<unique-domain.ngrok-free.app> 80
 ```
-==insert terminal image
-- Copy and run the url in your browser
-==insert image
-- Access the website
+<img width="1440" alt="Screenshot 2024-07-12 at 21 47 32" src="https://github.com/user-attachments/assets/81d108e6-fb6f-4833-8319-bb930b714935">
+
+- Copy and open the URL in your browser
+<img width="1677" alt="Screenshot 2024-07-12 at 20 54 12" src="https://github.com/user-attachments/assets/64a1215e-fe10-4f80-b41e-1b189fbd5fed">
+
+- Click on the `Visit Site` button to access your website
 ==insert image
 
-- You can also acess your ngrok dashboard at localhost://4040
+- At your static-domain/logs, you can access the time logs
+
+- You can also access your Ngrok dashboard at localhost://4040
 ==insert image
