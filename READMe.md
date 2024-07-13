@@ -76,7 +76,7 @@ celery -A app.celery worker --loglevel=info
 ```
 
 - Access the app at `localhost`
-  <img width="1680" alt="Screenshot 2024-07-13 at 13 45 51" src="https://github.com/user-attachments/assets/0c93e172-ec4c-4e52-8b72-ceb05ffcbd77">
+<img width="1680" alt="Screenshot 2024-07-13 at 13 45 51" src="https://github.com/user-attachments/assets/0c93e172-ec4c-4e52-8b72-ceb05ffcbd77">
 
   
 - In another tab, load `http://localhost:5000/?talktome=true` to generate time logs
@@ -90,7 +90,13 @@ If you check the terminal where Celery is running, you should see the below:
 
 <img width="1334" alt="Screenshot 2024-07-12 at 21 58 24" src="https://github.com/user-attachments/assets/b06898ae-36c0-4263-b07e-b3f839ba4a6a">
 
-This indicates that the email-sending task was received, processed by a specific Celery worker (ForkPoolWorker-8), and completed successfully in about 2.77 seconds.
+This indicates that the email-sending task was received, processed by a specific Celery worker (ForkPoolWorker-8), and completed successfully.
+
+- Check RabbitMQ to be sure it was queued successfully
+<img width="1680" alt="Screenshot 2024-07-13 at 13 56 38" src="https://github.com/user-attachments/assets/149662c3-822e-4680-b3aa-11d74ceb93ec">
+
+After some seconds, it should change to ready
+<img width="1680" alt="Screenshot 2024-07-13 at 13 56 47" src="https://github.com/user-attachments/assets/906b8595-20ac-46aa-bade-9aaa0e52b5c6">
 
 - Check your email address for the mail sent
 
