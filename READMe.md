@@ -52,7 +52,9 @@ The provided Python application creates a simple web application that does two t
 You can use an existing email address or create a new one. Configure 2FA for whichever.
 In the email settings, search "App Password" and create an App password. Be sure to copy the password somewhere.
 
-==insert images
+<img width="1040" alt="Screenshot 2024-07-13 at 08 01 24" src="https://github.com/user-attachments/assets/d75fc657-ccb6-47af-9767-0932bfa7afb0">
+
+<img width="1333" alt="Screenshot 2024-07-13 at 08 02 16" src="https://github.com/user-attachments/assets/cc4ca3f5-e095-450b-b55c-4a7e34b93d12">
 
 A `.env.template` file has been provided in this repo. Change the name to `.env` and replace the email and app password env variables.
 
